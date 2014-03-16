@@ -1,7 +1,7 @@
 
 public class Matrix {
-	private double[][] a;
-	private int m, n;
+	protected double[][] a;
+	protected int m, n;
 	
 	/* 2d-array matrix constructor */
 	public Matrix (double[][] a, int m, int n) {

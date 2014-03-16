@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 
 public class PrintRead {
-	public Matrix readMatrix (String path) throws FileNotFoundException {
+	public static Matrix readMatrix (String path) throws FileNotFoundException {
 		Scanner input = new Scanner (new File(path));
 		int rows = 0;
 		int columns = 0;
@@ -36,7 +36,7 @@ public class PrintRead {
 		return a;
 	}
 	
-	public Matrix readMatrix () {
+	public static Matrix readMatrix () {
 		Scanner input = new Scanner (System.in);
 		int rows = input.nextInt();
 		int columns = input.nextInt();
@@ -55,7 +55,7 @@ public class PrintRead {
 		return a;
 	}
 	
-	public void printMatrix (Matrix a) {
+	public static void printMatrix (Matrix a) {
 		double[][] mat = a.getArray();
 		for (int i = 0; i < mat.length; ++i){
 			for (int j = 0; j < mat[0].length; ++j){
@@ -65,7 +65,7 @@ public class PrintRead {
 		}
 	}
 
-	public void printMatrix (Matrix a, String path) throws FileNotFoundException {
+	public static void printMatrix (Matrix a, String path) throws FileNotFoundException {
 		PrintWriter printer = new PrintWriter (path); 
 		double[][] mat = a.getArray();
 		for (int i = 0; i < mat.length; ++i){

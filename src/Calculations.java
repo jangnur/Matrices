@@ -1,6 +1,6 @@
 
 public class Calculations {
-	public double determinant (Matrix a) {
+	public static double determinant (Matrix a) {
 		double[][] array = a.getArray();
 		double result = 0; 
 		  if (array.length == 1) { 
@@ -27,20 +27,7 @@ public class Calculations {
 		  return result; 
 	}
 	
-	public Matrix addMatrix (Matrix a, Matrix b) {
-	      double[][] first = a.getArray();
-	      double[][] second = b.getArray();
-	      Matrix c = new Matrix(first.length, first[0].length);
-	      double[][] result = c.getArray();
-	      for (int i = 0; i < first.length; ++i) {
-	         for (int j = 0; j < first[0].length; ++j) {
-	            result[i][j] = first[i][j] + second[i][j];
-	         }
-	      }
-	      return c;
-	   }
-	
-	public Matrix multiply (Matrix a, double s) {
+	public static Matrix multiply (Matrix a, double s) {
 	    double[][] array = a.getArray();
 		Matrix x = new Matrix(array.length, array[0].length);
 	      double[][] c = x.getArray();
@@ -52,46 +39,7 @@ public class Calculations {
 	      return x;
 	   }
 	
-	public Matrix deductMatrix (Matrix a, Matrix b) {
-		double[][] first = a.getArray();
-	    double[][] second = b.getArray();
-	    Matrix c = new Matrix(first.length, first[0].length);
-	    double[][] result = c.getArray();
-	    for (int i = 0; i < first.length; i++) {
-	    	for (int j = 0; j < first[0].length; j++) {
-	            result[i][j] = first[i][j] - second[i][j];
-	         }
-	      }
-	      return c;
-	   }
-	
-	public Matrix multiply (Matrix a, Matrix b) {
-		double[][] first = a.getArray();
-	    double[][] second = b.getArray();
-	    Matrix c = new Matrix(first.length, first[0].length);
-	    double[][] result = c.getArray();
-	    if (second.length != first[0].length) {
-	         throw new IllegalArgumentException("Matrix dimensions must be the same.");
-	    }
-	 
-	    double[] bColumnJ = new double[second.length];
-	    for (int j = 0; j < second[0].length; ++j) {
-	    	for (int k = 0; k < first[0].length; ++k) {
-	            bColumnJ[k] = second[k][j];
-	         }
-	         for (int i = 0; i < first.length; ++i) {
-	            double[] aRowI = first[i];
-	            double s = 0;
-	            for (int k = 0; k < first[0].length; ++k) {
-	               s += aRowI[k] * bColumnJ[k];
-	            }
-	            result[i][j] = s;
-	         }
-	      }
-	      return c;
-	   }
-
-	public double trace (Matrix a) {
+	public static double trace (Matrix a) {
 		double[][] first = a.getArray();
 	    double trace = 0;  
 	    for (int i = 0; i < Math.min(first.length, first[0].length); ++i) {
